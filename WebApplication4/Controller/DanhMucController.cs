@@ -19,7 +19,7 @@ namespace WebApplication4.Controller
         {
             CSDLTestDataContext context = new CSDLTestDataContext(connection);
             DanhMuc dm = context.DanhMucs.FirstOrDefault(x => x.MaDanhMuc == id);
-            if (dm != null) dm.TenDanhMuc = null;
+            if (dm != null) dm.MaDanhMuc = null;
             return dm;
         }
         [HttpPost]
