@@ -11,18 +11,18 @@ namespace WebApplication4.Controller
         public List<SanPham> laytoanbosanpham()
         {
             CSDLTestDataContext context = new CSDLTestDataContext(connection);
-            List<SanPham> ds = context.SanPhams.ToList();
-            foreach (SanPham s in ds)
+            List<SanPham> dsSP = context.SanPhams.ToList();
+            foreach (SanPham s in dsSP)
             {
                 s.MaDanhMuc = null;
             }
-            return ds;
+            return dsSP;
         }
         [HttpGet]
         public SanPham SanPham(int id)
         {
             CSDLTestDataContext context = new CSDLTestDataContext(connection);
-            SanPham sanPham = context.SanPhams.FirstOrDefault(x=> x.MaDanhMuc == id);
+            SanPham sanPham = context.SanPhams.FirstOrDefault(x=> x.Ma == id);
             if (sanPham != null) sanPham.MaDanhMuc = null;
             return sanPham;
         }
